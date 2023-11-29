@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    cloud.google.com/neg: '{"ingress":true}'
+    meta.helm.sh/release-name: kubeinvaders
+    meta.helm.sh/release-namespace: kubeinvaders
+  creationTimestamp: "2023-05-03T16:28:57Z"
+  labels:
+    app.kubernetes.io/instance: kubeinvaders
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: kubeinvaders
+    helm.sh/chart: kubeinvaders-1.9.6
+  name: kubeinvaders
+  namespace: kubeinvaders
+  resourceVersion: "7948"
+  uid: d51324fb-d125-4619-bb21-adfd90138c8a
+spec:
+  clusterIP: 10.8.201.54
+  clusterIPs:
+  - 10.8.201.54
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: invaders-web-gw
+    port: 8080
+    protocol: TCP
+    targetPort: http
+  selector:
+    app.kubernetes.io/instance: kubeinvaders
+    app.kubernetes.io/name: kubeinvaders
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
